@@ -1,0 +1,5 @@
+git
+git-client
+ssh-slaves
+greenballs
+job-dsl

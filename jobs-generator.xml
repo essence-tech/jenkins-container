@@ -1,0 +1,289 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Groovy DSL jobs generator for all projects</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty plugin="naginator@1.17.2">
+      <optOut>false</optOut>
+    </com.chikli.hudson.plugin.naginator.NaginatorOptOutProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@2.0.1">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <categories class="java.util.concurrent.CopyOnWriteArrayList"/>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+      <limitOneJobWithMatchingParams>false</limitOneJobWithMatchingParams>
+      <paramsToUseForLimit></paramsToUseForLimit>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.3.2">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>git@github.com:essence-tech/jenkins-jobs-dsl.git</url>
+        <credentialsId>8cf5815a-a858-4e0e-b83b-50fd93e1a900</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <com.cloudbees.jenkins.GitHubPushTrigger plugin="github@1.27.0">
+      <spec></spec>
+    </com.cloudbees.jenkins.GitHubPushTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nCommentary Service jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>cs/ContinuousIntegration.groovy
+cs/PullRequests.groovy
+cs/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nNorwegian Wood jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>norwegian_wood/ContinuousIntegration.groovy
+norwegian_wood/PullRequests.groovy
+norwegian_wood/DataContinuousIntegration.groovy
+norwegian_wood/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nEssence API jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>essence-api/ContinuousIntegration.groovy
+essence-api/PullRequests.groovy
+essence-api/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nMTS jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>mts/ContinuousDelivery.groovy
+mts/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nMIS3 jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>mis3/ContinuousIntegration.groovy
+mis3/PullRequests.groovy
+mis3/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nOlive3 jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>olive3/ContinuousIntegration.groovy
+olive3/PullRequests.groovy
+olive3/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nWorkhorse jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>workhorse/ContinuousIntegration.groovy
+workhorse/PullRequests.groovy
+workhorse/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nTac jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>tac/ContinuousIntegration.groovy
+tac/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <hudson.tasks.Shell>
+      <command>echo -e &quot;\n====================\nTalend jobs generation\n====================\n&quot;</command>
+    </hudson.tasks.Shell>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>talend/ContinuousIntegration.groovy
+talend/PullRequests.groovy
+talend/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>tools/DevopsTools.groovy
+tools/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>swagger/ContinuousIntegration.groovy
+swagger/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+    <javaposse.jobdsl.plugin.ExecuteDslScripts plugin="job-dsl@1.64">
+      <targets>kong/ContinuousIntegration.groovy
+kong/Views.groovy</targets>
+      <usingScriptText>false</usingScriptText>
+      <sandbox>false</sandbox>
+      <ignoreExisting>false</ignoreExisting>
+      <ignoreMissingFiles>false</ignoreMissingFiles>
+      <failOnMissingPlugin>false</failOnMissingPlugin>
+      <unstableOnDeprecation>false</unstableOnDeprecation>
+      <removedJobAction>IGNORE</removedJobAction>
+      <removedViewAction>IGNORE</removedViewAction>
+      <removedConfigFilesAction>IGNORE</removedConfigFilesAction>
+      <lookupStrategy>JENKINS_ROOT</lookupStrategy>
+      <additionalClasspath>lib/</additionalClasspath>
+    </javaposse.jobdsl.plugin.ExecuteDslScripts>
+  </builders>
+  <publishers>
+    <jenkins.plugins.slack.SlackNotifier plugin="slack@2.2">
+      <baseUrl></baseUrl>
+      <teamDomain></teamDomain>
+      <authToken></authToken>
+      <authTokenCredentialId></authTokenCredentialId>
+      <botUser>false</botUser>
+      <room>#devops_monitoring</room>
+      <startNotification>true</startNotification>
+      <notifySuccess>true</notifySuccess>
+      <notifyAborted>false</notifyAborted>
+      <notifyNotBuilt>true</notifyNotBuilt>
+      <notifyUnstable>true</notifyUnstable>
+      <notifyRegression>false</notifyRegression>
+      <notifyFailure>true</notifyFailure>
+      <notifyBackToNormal>true</notifyBackToNormal>
+      <notifyRepeatedFailure>true</notifyRepeatedFailure>
+      <includeTestSummary>true</includeTestSummary>
+      <includeFailedTests>false</includeFailedTests>
+      <commitInfoChoice>NONE</commitInfoChoice>
+      <includeCustomMessage>false</includeCustomMessage>
+      <customMessage></customMessage>
+    </jenkins.plugins.slack.SlackNotifier>
+  </publishers>
+  <buildWrappers/>
+</project>
+    
