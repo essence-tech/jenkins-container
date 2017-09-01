@@ -1,5 +1,2 @@
-git
-git-client
-ssh-slaves
-greenballs
+groovy
 job-dsl

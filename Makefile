@@ -18,16 +18,17 @@ run:
 	@if ! docker images | grep $(IMAGE_NAME); then \
 	    $(MAKE) _build; \
         fi
-	@docker run -d -p 8080:8080 -p 50000:50000 \
+	@docker run -p 8080:8080 -p 50000:50000 \
 		-v $(JENKINS_DATA_VOLUME):/var/jenkins_home \
-		-v ~/.ssh/id_rsa:/var/jenkins_home/.ssh/id_rsa \
+		-v ~/.ssh/id_rsa:/home/jenkins/.ssh/ \
 		--name $(CONTAINER_NAME) $(IMAGE_NAME)
 	@echo "Jenko is up and running"
 
 .PHONY: remove
 remove:
 	@if docker images | grep $(IMAGE_NAME); then \
-	    docker rmi -f $(IMAGE_NAME); \
+            $(MAKE) _rm_container; \
+	    docker rmi -f $(IMAGE_NAME) || exit 1; \
 	    echo "Jenkins image removed"; \
         else \
             echo "No image to remove"; \
@@ -42,7 +43,7 @@ _create_volume:
 remove_volume:
 	@if docker volume ls | grep $(JENKINS_DATA_VOLUME); then \
   	    $(MAKE) _rm_container; \
-	    docker volume rm $(JENKINS_DATA_VOLUME); \
+	    docker volume rm $(JENKINS_DATA_VOLUME) || exit 1; \
 	    echo "Jenkins data volume removed" ; \
 	else \
 	    echo "No volume to remove"; \
