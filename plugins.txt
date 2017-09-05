@@ -1,2 +1,5 @@
 groovy
 job-dsl
+github-branch-source
+workflow-aggregator
+pipeline-github-lib
