@@ -1,4 +1,4 @@
 def buildService(String imageName, String tag, String service) {
-	echo "${imageName} ${tag}"
-	def customImage = docker.build("${imageName}":"${tag}", "./${service}/Dockerfile")
+	echo "Building ${imageName} with tag ${tag} "
+	sh 'docker build -t "${imageName}":"${tag}" -f "${service}"/Dockerfile'
 }
