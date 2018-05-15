@@ -1,3 +1,4 @@
 def buildMicroService(imageName, String tag = 'latest', service ) {
-	def customImage = docker.build("${imageName}":"${tag}", "./${service}/Dockerfile")
+	echo "${imageName}" "${tag}" "${service}"
+	//def customImage = docker.build("${imageName}":"${tag}", "./${service}/Dockerfile")
 }
