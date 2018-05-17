@@ -5,10 +5,6 @@
         body.delegate = config
         body()
 
-        def buildTests(){
-        	echo "MAKE TEST"
-        }
-
         node {
             // Clean workspace before doing anything
             deleteDir()
@@ -40,4 +36,7 @@
                 throw err
             }
         }
+    }
+def buildTests() {
+        	echo "MAKE TEST"
     }
