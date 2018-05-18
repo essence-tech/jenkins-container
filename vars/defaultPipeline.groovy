@@ -37,6 +37,8 @@
             }
         }
     }
+
+//Functions to call Tests
 def buildTests() {
         	echo "MAKE TEST"
-    }
+   }
