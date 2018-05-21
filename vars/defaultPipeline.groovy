@@ -6,7 +6,7 @@
         body()
 
         node {
-            // Clean workspace before doing anything
+            // Clean workspace
             deleteDir()
 
             try {
@@ -15,7 +15,6 @@
                 // }
                 stage ('Build') {
                 	buildTests()
-                    // sh "echo 'building ${config.projectName} ...'"
                 }
                 stage ('Tests') {
                     parallel 'static': {
@@ -39,6 +38,6 @@
     }
 
 //Functions to call Tests
-def buildTests() {
+def buildStaticTests() {
         	echo "MAKE TEST"
    }
