@@ -14,14 +14,15 @@ def call(body) {
 
                 }
                 stage ('Tests') {
-                    parallel 'static': {
+                    parallel
+                    'static': {
                         buildStaticTests()
                     },
                     'unit': {
-                        buildUnitTests()
+                      //  buildUnitTests()
                     },
                     'integration': {
-                        buildBddTests()
+                       // buildBddTests()
                     }
                 }
                 stage ('Deploy') {
