@@ -5,39 +5,39 @@ def call(body) {
         body.delegate = config
         body()
 
-        def buildStaticTests() {
-				//sh 'make STATIC_TESTS'
-				echo "${config.projectName}"
-   			}
+        		def buildStaticTests() {
+						//sh 'make STATIC_TESTS'
+						echo "${config.projectName}"
+   					}
 
-        node {
-            // Clean workspace
-            deleteDir()
+		        node {
+		            // Clean workspace
+		            deleteDir()
 
-            try {
-                stage ('Build') {
-                	echo "build step"
-                }
-                stage ('Tests') {
-                    parallel 'static': {
-                        buildStaticTests()
-                    },
-                    'unit': {
-                      //  buildUnitTests()
-                    },
-                    'integration': {
-                       // buildBddTests()
-                    }
-                }
-                stage ('Deploy') {
-                    echo "${config.serverDomain}"
-                }
-            } catch (err) {
-                currentBuild.result = 'FAILED'
-                throw err
-            }
-        }
-    }
+		            try {
+		                stage ('Build') {
+		                	echo "build step"
+		                }
+		                stage ('Tests') {
+		                    parallel 'static': {
+		                        buildStaticTests()
+		                    },
+		                    'unit': {
+		                      //  buildUnitTests()
+		                    },
+		                    'integration': {
+		                       // buildBddTests()
+		                    }
+		                }
+		                stage ('Deploy') {
+		                    echo "${config.serverDomain}"
+		                }
+		            } catch (err) {
+		                currentBuild.result = 'FAILED'
+		                throw err
+		            }
+		        }
+		    }
 
 //Functions to call Tests
 // def buildStaticTests() {
