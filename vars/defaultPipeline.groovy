@@ -18,7 +18,7 @@ def call(body) {
                 }
                 stage ('Tests') {
                     parallel 'static': {
-                        sh 'echo "${config.projectName}"'
+                        echo "${config.projectName}"
                     },
                     'unit': {
                         sh "echo 'shell scripts to run unit tests...'"
@@ -28,7 +28,7 @@ def call(body) {
                     }
                 }
                 stage ('Deploy') {
-                    sh 'echo "${config.serverDomain}"'
+                    echo "${config.serverDomain}"
                 }
             } catch (err) {
                 currentBuild.result = 'FAILED'
