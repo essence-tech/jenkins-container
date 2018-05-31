@@ -18,7 +18,7 @@ def call(body) {
                 }
                 stage ('Tests') {
                     parallel 'static': {
-                        sh 'gcloud config list'
+                        sh 'echo "shitfuck ${SERVICE_ACCOUNT_FILE}"
                     },
                     'unit': {
                         sh "echo 'shell scripts to run unit tests...'"
@@ -28,7 +28,7 @@ def call(body) {
                     }
                 }
                 stage ('Deploy') {
-                    sh "echo 'deploying to server ${config.serverDomain} & ${config.projectName}...'"
+                    sh 'gcloud config list'
                 }
             } catch (err) {
                 currentBuild.result = 'FAILED'
