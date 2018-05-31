@@ -7,7 +7,7 @@ def call(body) {
 
         def buildStaticTests() {
 				//sh 'make STATIC_TESTS'
-				echo "${config.projectName"
+				echo "${config.projectName}"
    			}
 
         node {
