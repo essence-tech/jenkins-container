@@ -10,9 +10,9 @@ def call(body) {
             deleteDir()
 
             try {
-                // stage ('Clone') {
-                //     checkout scm
-                // }
+                stage ('Clone') {
+                    checkout scm
+                }
                 stage ('Build') {
                 	buildStaticTests()
                 }
@@ -39,5 +39,15 @@ def call(body) {
 
 //Functions to call Tests
 def buildStaticTests() {
-        	echo "${SERVICE_ACCOUNT_FILE}"
+	//code
+	echo "hi"
+   }
+def buildUnitTests() {
+	//code
+   }
+def buildIntergrationTests() {
+	//code
+   }
+def buildBddTests() {
+	//code
    }
