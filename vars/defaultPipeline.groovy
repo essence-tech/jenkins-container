@@ -18,7 +18,7 @@ def call(body) {
                 }
                 stage ('Tests') {
                     parallel 'static': {
-                        sh "echo 'shell scripts to run static tests...'"
+                        sh 'gcloud config list'
                     },
                     'unit': {
                         sh "echo 'shell scripts to run unit tests...'"
