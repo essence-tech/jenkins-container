@@ -24,9 +24,6 @@ def call(body) {
                         buildBddTests()
                     }
                 }
-                stage ('Deploy') {
-                    echo "${config.serverDomain}"
-                }
             } catch (err) {
                 currentBuild.result = 'FAILED'
                 throw err
