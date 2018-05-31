@@ -10,21 +10,18 @@ def call(body) {
             deleteDir()
 
             try {
-                stage ('Clone') {
-                    checkout scm
-                }
                 stage ('Build') {
-                	buildStaticTests()
+
                 }
                 stage ('Tests') {
                     parallel 'static': {
-                        echo "${config.projectName}"
+                        buildStaticTests()
                     },
                     'unit': {
-                        sh "echo 'shell scripts to run unit tests...'"
+                        buildUnitTests()
                     },
                     'integration': {
-                        sh "echo 'shell scripts to run integration tests...'"
+                        buildBddTests()
                     }
                 }
                 stage ('Deploy') {
@@ -39,15 +36,15 @@ def call(body) {
 
 //Functions to call Tests
 def buildStaticTests() {
-	//code
-	echo "hi"
+	//sh 'make STATIC_TESTS'
+	echo "${config.serverDomain}"
    }
 def buildUnitTests() {
-	//code
+	//sh 'make UNIT_TESTS'
    }
 def buildIntergrationTests() {
-	//code
+	//sh 'make INTEGRATION_TESTS'
    }
 def buildBddTests() {
-	//code
+	//sh 'make BDD_TESTS'
    }
