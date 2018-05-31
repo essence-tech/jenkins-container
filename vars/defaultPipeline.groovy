@@ -5,6 +5,11 @@ def call(body) {
         body.delegate = config
         body()
 
+        def buildStaticTests() {
+				//sh 'make STATIC_TESTS'
+				echo "${config.projectName"
+   			}
+
         node {
             // Clean workspace
             deleteDir()
@@ -35,10 +40,9 @@ def call(body) {
     }
 
 //Functions to call Tests
-def buildStaticTests() {
-	//sh 'make STATIC_TESTS'
-	echo "${config.serverDomain}"
-   }
+// def buildStaticTests() {
+// 	//sh 'make STATIC_TESTS'
+//    }
 def buildUnitTests() {
 	//sh 'make UNIT_TESTS'
    }
