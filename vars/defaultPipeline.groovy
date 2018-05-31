@@ -18,7 +18,7 @@ def call(body) {
                 }
                 stage ('Tests') {
                     parallel 'static': {
-                        sh 'echo "shitfuck ${SERVICE_ACCOUNT_FILE}"
+                        sh 'echo "shitfuck ${SERVICE_ACCOUNT_FILE}"'
                     },
                     'unit': {
                         sh "echo 'shell scripts to run unit tests...'"
