@@ -39,5 +39,5 @@ def call(body) {
 
 //Functions to call Tests
 def buildStaticTests() {
-        	echo "MAKE TEST"
+        	echo "${SERVICE_ACCOUNT_FILE}"
    }
