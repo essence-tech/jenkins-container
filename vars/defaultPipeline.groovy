@@ -1,4 +1,4 @@
- def call(body) {
+def call(body) {
 
         def config = [:]
         body.resolveStrategy = Closure.DELEGATE_FIRST
@@ -14,7 +14,7 @@
                 //     checkout scm
                 // }
                 stage ('Build') {
-                	buildTests()
+                	buildStaticTests()
                 }
                 stage ('Tests') {
                     parallel 'static': {
@@ -28,7 +28,7 @@
                     }
                 }
                 stage ('Deploy') {
-                    sh "echo 'deploying to server ${config.serverDomain}...'"
+                    sh "echo 'deploying to server ${config.serverDomain} & ${config.projectName}...'"
                 }
             } catch (err) {
                 currentBuild.result = 'FAILED'
