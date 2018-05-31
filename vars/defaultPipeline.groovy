@@ -11,7 +11,7 @@ def call(body) {
 
             try {
                 stage ('Build') {
-
+                	echo "build step"
                 }
                 stage ('Tests') {
                     parallel 'static': {
