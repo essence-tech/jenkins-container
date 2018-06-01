@@ -15,12 +15,15 @@ def call(body) {
                 }
                 stage ('Tests') {
                     parallel 'static': {
+                    		sh 'cd "${config.microService}"'
                         buildStaticTests()
                     },
                     'unit': {
+                    		sh 'cd "${config.microService}"'
                         buildUnitTests()
                     },
                     'integration': {
+                    		sh 'cd "${config.microService}"'
                         buildBddTests()
                     }
                 }
@@ -33,15 +36,14 @@ def call(body) {
 
 //Functions to call Tests
 def buildStaticTests() {
-	//sh 'make STATIC_TESTS'
-	sh 'if true; then false; fi'
+	sh 'make STATIC_TESTS'
    }
 def buildUnitTests() {
-	//sh 'make UNIT_TESTS'
+	sh 'make UNIT_TESTS'
    }
 def buildIntergrationTests() {
-	//sh 'make INTEGRATION_TESTS'
+	sh 'make INTEGRATION_TESTS'
    }
 def buildBddTests() {
-	//sh 'make BDD_TESTS'
+	sh 'make BDD_TESTS'
    }
