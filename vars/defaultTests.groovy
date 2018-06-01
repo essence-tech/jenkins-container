@@ -14,8 +14,10 @@ def call(body) {
                 	checkout scm
                 }
                  stage ('testbdd') {
-                 		dir ('frontend')
-                 		sh "ls"
+                 		dir ('frontend') {
+                 			sh "ls"
+                 		}
+
                 }
                 // stage ('Tests') {
                 //     parallel 'static': {
