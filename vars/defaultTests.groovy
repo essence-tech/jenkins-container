@@ -13,13 +13,12 @@ def call(body) {
                 stage ('checkout') {
                 	checkout scm
                 }
-                stage ('cd') {
-                	sh "cd ${config.microService}/ && make dev_test"
-                	sh "ls"
+                 stage ('test') {
+                	sh "cd ${config.microService}/ buildBddTests()"
                 }
                 // stage ('Tests') {
                 //     parallel 'static': {
-                //     		sh 'cd "${config.microService}"'
+                //     		sh 'cd "${config.microService}/ "'
                 //         buildStaticTests()
                 //     },
                 //     'unit': {
