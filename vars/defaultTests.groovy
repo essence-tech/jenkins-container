@@ -34,6 +34,7 @@ def call(body) {
 //Functions to call Tests
 def buildStaticTests() {
 	//sh 'make STATIC_TESTS'
+	sh 'if true; then false; fi'
    }
 def buildUnitTests() {
 	//sh 'make UNIT_TESTS'
