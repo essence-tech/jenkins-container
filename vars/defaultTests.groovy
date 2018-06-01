@@ -14,7 +14,7 @@ def call(body) {
                 	checkout scm
                 }
                  stage ('testbdd') {
-                 		dir ('${config.microService}') {
+                 		dir ("${config.microService}") {
                  			buildBddTests()
                  		}
 
