@@ -11,22 +11,24 @@ def call(body) {
 
             try {
                 stage ('Build') {
-                	echo "build step"
+                	checkout scm
+                	sh "cd ${config.microService}"
+                	sh "ls"
                 }
-                stage ('Tests') {
-                    parallel 'static': {
-                    		sh 'cd "${config.microService}"'
-                        buildStaticTests()
-                    },
-                    'unit': {
-                    		sh 'cd "${config.microService}"'
-                        buildUnitTests()
-                    },
-                    'integration': {
-                    		sh 'cd "${config.microService}"'
-                        buildBddTests()
-                    }
-                }
+                // stage ('Tests') {
+                //     parallel 'static': {
+                //     		sh 'cd "${config.microService}"'
+                //         buildStaticTests()
+                //     },
+                //     'unit': {
+                //     		sh 'cd "${config.microService}"'
+                //         buildUnitTests()
+                //     },
+                //     'integration': {
+                //     		sh 'cd "${config.microService}"'
+                //         buildBddTests()
+                //     }
+                // }
             } catch (err) {
                 currentBuild.result = 'FAILED'
                 throw err
