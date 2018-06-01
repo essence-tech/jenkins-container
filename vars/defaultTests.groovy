@@ -15,7 +15,7 @@ def call(body) {
                 }
                  stage ('testbdd') {
                  		dir ('frontend')
-                 		buildBddTests()
+                 		sh "ls"
                 }
                 // stage ('Tests') {
                 //     parallel 'static': {
