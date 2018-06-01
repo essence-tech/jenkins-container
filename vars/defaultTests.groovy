@@ -10,7 +10,10 @@ def call(body) {
             deleteDir()
 
             try {
-                stage ('Build') {
+                stage ('checkout') {
+                	checkout scm
+                }
+                stage ('cd') {
                 	sh "cd ${config.microService}/"
                 	sh "ls"
                 }
