@@ -11,8 +11,7 @@ def call(body) {
 
             try {
                 stage ('Build') {
-                	checkout scm
-                	sh "cd ${config.microService}"
+                	sh "cd ${config.microService}/"
                 	sh "ls"
                 }
                 // stage ('Tests') {
