@@ -14,7 +14,7 @@ def call(body) {
                 	checkout scm
                 }
                  stage ('test') {
-                	sh "cd ${config.microService}/ buildBddTests()"
+                	sh "cd ${config.microService}/" buildBddTests()
                 }
                 // stage ('Tests') {
                 //     parallel 'static': {
