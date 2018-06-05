@@ -1,6 +1,7 @@
 // vars/testScript.groovy
 def call(Closure body) {
     node {
-        body()
+        sh 'echo "this is the ls"'
+        sh 'ls'
     }
 }
