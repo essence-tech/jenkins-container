@@ -7,3 +7,4 @@ def call(body) {
     body()
 
     sh "echo ${config.gitTag}"
+  }
