@@ -1,6 +1,6 @@
-def buildTest() {
+def call(Map config) {
 	dir ("${params.REQUESTED_ACTION}") {
-	sh "make BDD_TESTS"
+	return sh(script: "make ${config.test}", returnStdout: true)
 }
 	// return sh(script: "make BDD_TESTS", returnStdout: true)
 }
