@@ -1,4 +1,4 @@
-def call(Map config) {
+def call(args) {
 	dir ("${params.REQUESTED_ACTION}")
-	return sh(script: "make BDD_TESTS", returnStdout: true)
+	return sh(script: "make ${arg1}", returnStdout: true)
 }
