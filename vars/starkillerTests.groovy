@@ -1,5 +1,5 @@
 def call(Map config) {
-	dir ("${params.REQUESTED_ACTION}") {
+	dir ("${params.microserviceOption}") {
 	sh "make ${config.test}"
 	}
 }
