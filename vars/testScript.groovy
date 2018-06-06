@@ -1,4 +1,9 @@
 // vars/testScript.groovy
-def call() {
-    lsb = sh(returnStdout: true, script: 'ls')
-}
+def call(body) {
+    // evaluate the body block, and collect configuration into the object
+    def config = [:]
+    body.resolveStrategy = Closure.DELEGATE_FIRST
+    body.delegate = config
+    body()
+
+    sh "echo ${config.gitTag}"
