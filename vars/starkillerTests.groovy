@@ -16,8 +16,8 @@ def runTest(Map config) {
 }
 
 def runAll() {
-	//def microServicesList = "${microServices}"
-	println env.microServicesList
+	//def microServicesList = "[frontend]"
+	println "${}"+env.microServicesList
 	env.microServicesList.each {
 	runTest(test:'bdd_tests')
 	}
