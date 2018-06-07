@@ -1,10 +1,9 @@
 def call() {
-	stage('Static Tests') {
 	  agent {
 	    docker {
 	    label 'master'
 	    image 'mugen/ubuntu-build-essential'
-	    args '-u root:sudo'
+	    args -u root:sudo'
 	    }
 	  }
 	  steps {
@@ -12,5 +11,4 @@ def call() {
 	    starkillerTests.runTest(test:'bdd_tests')
 	    }
 	  }
-	}
 }
