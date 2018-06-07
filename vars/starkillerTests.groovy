@@ -11,7 +11,7 @@
 def runTest(Map config) {
 	def service = "${params.microserviceOption}"
 	dir ("${service}") {
-		sh " ls && make ${config.test}"
+		sh "ls && make ${config.test}"
 	}
 }
 
