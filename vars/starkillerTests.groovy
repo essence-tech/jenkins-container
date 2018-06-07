@@ -19,7 +19,7 @@ def runAll() {
 	//def microServicesList = "${microServices}"
 	println env.microServicesList
 	for (item in env.microServicesList) {
-	echo "deploying " item
+	echo "deploying "+ item
 	runTest(test:'bdd_tests')
 	}
 }
