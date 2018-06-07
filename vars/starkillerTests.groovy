@@ -23,5 +23,5 @@ def runAll() {
 }
 
 def printVars() {
-	println microServicesList
+	println ${microServicesList}
 }
