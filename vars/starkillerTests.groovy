@@ -10,14 +10,14 @@
 // }
 def runTest(Map config) {
 	def service = "${params.microserviceOption}"
-	dir ("${service}") {
+	dir ("${params.microserviceOption}") {
 		sh "ls && make ${config.test}"
 	}
 }
 
 def runAll() {
 	//def microServicesList = "[frontend]"
-	def ms = microServicesList.split(',')
+	String[] ms = microServicesList.split(',')
 	println ms.getClass()
 	ms.each {
 	runTest(test:'bdd_tests')
