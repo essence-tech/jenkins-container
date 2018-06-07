@@ -7,4 +7,3 @@ def runTest(Map config) {
 def runAll(Map config) {
 	sh "echo Running all tests && make ${config.test}"
 	}
-}
