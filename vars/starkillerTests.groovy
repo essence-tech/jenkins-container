@@ -8,9 +8,7 @@
 // 	sh "echo running all tests && make ${config.test}"
 // 	}
 // }
-
 def runTest(Map config) {
-	//arg = "${params.microserviceOption}"
 	def service = "${params.microserviceOption}"
 	dir ("${service}") {
 		sh " ls && make ${config.test}"
@@ -18,8 +16,8 @@ def runTest(Map config) {
 }
 
 def runAll() {
-	def microServicesList = ["frontend"]
+	def microServicesList = ["${microServices}"]
 	microServicesList.each {
-	runTest(test:'bdd_tests')
+	runTest(test:'tests')
 	}
 }
