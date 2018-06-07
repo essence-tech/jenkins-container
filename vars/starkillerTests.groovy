@@ -10,8 +10,6 @@ def runAll() {
 	def ms = microServicesList.split(',')
 	ms.each {
 		//runTest(test:'bdd_tests')
-		dir ("${ms}") {
-			sh "ls && make bdd_tests"
-		}
+			sh " cd ${ms} && make bdd_tests"
 	}
 }
