@@ -7,7 +7,7 @@ def runTest(Map config) {
 
 def runAll() {
 	//Make a list of strings
-	String[] ms = microServicesList.split(',')
+	ms = microServicesList.split(',')
 	ms.each {
 		//runTest(test:'bdd_tests')
 		dir ("${ms}") {
