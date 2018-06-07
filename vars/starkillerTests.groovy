@@ -19,7 +19,7 @@ def runTest(Map config) {
 
 def runAll() {
 	def microServicesList = ["frontend"]
-	for (item in microServicesList) {
+	microServicesList.each {
 	runTest(test:'bdd_tests')
 	}
 }
