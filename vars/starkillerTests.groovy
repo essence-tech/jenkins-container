@@ -18,7 +18,8 @@ def runTest(Map config) {
 def runAll() {
 	//def microServicesList = "${microServices}"
 	println env.microServicesList
-	env.microServicesList.each {
+	for (item in env.microServicesList) {
+	echo "deploying " item
 	runTest(test:'bdd_tests')
 	}
 }
