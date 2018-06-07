@@ -7,9 +7,9 @@ def runTest(Map config) {
 
 def runAll() {
 	//Make a list of strings
-	def ms = microServicesList.split(',')
+	String[] ms = microServicesList.split(',')
 	ms.each {
+		sh "cd ${it} && make bdd_tests"
 		//runTest(test:'bdd_tests')
-			sh " cd ${ms} && make bdd_tests"
 	}
 }
