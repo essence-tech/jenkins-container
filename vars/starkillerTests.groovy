@@ -21,7 +21,3 @@ def runAll() {
 	runTest(test:'bdd_tests')
 	}
 }
-
-def printVars() {
-	println "${microServicesList}"
-}
