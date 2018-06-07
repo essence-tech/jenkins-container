@@ -16,7 +16,7 @@ def runTest(Map config) {
 }
 
 def runAll() {
-	def microServicesList = ["${microServices}"]
+	def microServicesList = "${microServices}"
 	microServicesList.each {
 	runTest(test:'tests')
 	}
