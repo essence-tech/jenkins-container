@@ -18,6 +18,6 @@ def runTest(Map config) {
 def runAll() {
 	//def microServicesList = "${microServices}"
 	env.microServicesList.each {
-	runTest(test:'tests')
+	runTest(test:'bdd_tests')
 	}
 }
