@@ -12,7 +12,7 @@
 def runTest(Map config) {
 	//arg = "${params.microserviceOption}"
 	def service = "${params.microserviceOption}"
-	dir ('service') {
+	dir ("${service}") {
 		sh " ls && make ${config.test}"
 	}
 }
