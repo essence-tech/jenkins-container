@@ -18,7 +18,7 @@ def runAll() {
 	//Make a list of strings
 	String[] ms = microServicesList.split(',')
 	ms.each {
-		runTest("${it}", bdd_tests)
+		runTest("${it}", 'bdd_tests')
 		//sh "cd ${it} && make tests"
 		//runTest(test:'bdd_tests', True)
 	}
