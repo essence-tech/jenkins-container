@@ -14,13 +14,12 @@ def runTest(serviceName, testName) {
 	}
 }
 
-
-
 def runAll() {
 	//Make a list of strings
 	String[] ms = microServicesList.split(',')
 	ms.each {
-		sh "cd ${it} && make tests"
+		runTest("${it}", bdd_tests)
+		//sh "cd ${it} && make tests"
 		//runTest(test:'bdd_tests', True)
 	}
 }
