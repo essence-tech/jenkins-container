@@ -6,7 +6,7 @@ def deployService(service, target = '') {
 }
 
 def buildImage(imageName, dockerfile) {
-    def testImage = docker.build("${imageName}", "-f /${params.microServiceOption}/${dockerfile}")
+    def testImage = docker.build("${imageName}", "-f /${params.microServiceOption}/${dockerfile} .")
 
     // testImage.inside {
     //     sh 'make test'
