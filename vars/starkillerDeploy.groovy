@@ -27,5 +27,4 @@ def pushImageGcr(imageName) {
 		docker tag ${imageName} eu.gcr.io/${PROJECTNAME}/${params.microServiceOption}:${env.BUILD_NUMBER}
 		gcloud docker -- push eu.gcr.io/${PROJECTNAME}/${params.microServiceOption}:${env.BUILD_NUMBER}
 		'''
-
 }
