@@ -25,7 +25,7 @@ def pushImageGcr(imageName) {
     activate_service_account_gc()
 		sh
 		'''
-		docker tag "${imageName}"" eu.gcr.io/"${env.PROJECTNAME}"/"${params.microServiceOption}":"${env.BUILD_NUMBER}"
+		docker tag "${imageName}" eu.gcr.io/"${env.PROJECTNAME}"/"${params.microServiceOption}":"${env.BUILD_NUMBER}"
 		gcloud docker -- push eu.gcr.io/"${env.PROJECTNAME}"/"${params.microServiceOption}":"${env.BUILD_NUMBER}"
 		'''
 }
