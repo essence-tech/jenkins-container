@@ -18,6 +18,5 @@ def buildImageAndTest(imageName, dockerfile) {
 }
 
 def pushImageGcr(imageName) {
-    activateServiceAccountGc()
     sh "gcloud docker -- push eu.gcr.io/${env.PROJECTNAME}/${params.microServiceOption}:${env.BUILD_NUMBER}"
 }
