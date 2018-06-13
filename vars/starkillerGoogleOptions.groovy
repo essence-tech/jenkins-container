@@ -7,6 +7,6 @@ def  authDockerGc() {
 }
 
 def pullDockerImages(gcrRegion, imageName) {
-	sh 'gcloud docker -- pull "${gcrRegion}"/"${PROJECTNAME}"/build-containers/"${imageName}"'
+	sh "gcloud docker -- pull ${gcrRegion}/${PROJECTNAME}/build-containers/${imageName}"
 	return "${gcrRegion}/${PROJECTNAME}/build-containers/${imageName}"
 }
