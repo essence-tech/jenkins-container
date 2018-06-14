@@ -2,6 +2,10 @@ def activateServiceAccountGc(){
 	sh 'gcloud auth activate-service-account --key-file=${JENKINS_HOME}${SECRETS_DIR}${SERVICE_ACCOUNT_FILE}'
 		}
 
+def deactivateServiceAccountGc(serviceAccountEmail){
+	sh "gcloud auth revoke ${serviceAccountEmail}"
+}
+
 def  authDockerGc() {
   sh 'gcloud auth configure-docker'
 }

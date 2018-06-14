@@ -6,5 +6,5 @@ def call(body) {
     body.delegate = config
     body()
     sh "echo ${config.gitTag} is with ${config.gitCommit}"
-    def b = starkillerGoogleOptions.activateServiceAccountGc()
+    def b = starkillerGoogleOptions.activateServiceAccountGc()g
   }
