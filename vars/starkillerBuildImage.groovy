@@ -1,6 +1,6 @@
-def buildImage(Closure body) {
+def buildImage(Map config,Closure body) {
 	body()
-	docker.image("docker").inside("${DOCKER_SOCK_VOLUME} ${JENKINS_HOME}${SECRETS_DIR} -u root") {
+	docker.image("${config.image}").inside("${DOCKER_SOCK_VOLUME} ${JENKINS_HOME}${SECRETS_DIR} -u root") {
 		sh 'docker ps'
   }
 }
